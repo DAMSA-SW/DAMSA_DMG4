@@ -30,16 +30,15 @@ cd {batchPath}
 condorSub = """executable              = $(filename)
 universe                = vanilla
 getenv                  = True
-RequestCpus     = 1
+RequestCpus     = 10
 RequestMemory       = 15360
-accounting_group        = group_cms
 +JobBatchName = "{batchName}"
 queue filename matching {shFiles}*.sh
 """
 
 g4Path = os.getcwd()
 
-batchPath = g4Path+ '/batch/eBeam_8_GeV_W_15_cm_target_1E5_EOT'
+batchPath = g4Path+ '/batch/eBeam_8_GeV_W_15_cm_target_1E6_EOT'
 os.makedirs(batchPath, exist_ok=True)
 os.chdir(batchPath)
 for r in range(1000):
